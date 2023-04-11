@@ -1,0 +1,14 @@
+#ifndef __STR_ENUM__GENERATE_CONSTANTS_HPP__
+#define __STR_ENUM__GENERATE_CONSTANTS_HPP__
+
+#include "names.hpp"
+
+#define __STR_ENUM_GENERATE_CONSTANT(enum_name, element) static constexpr __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name) element{__STR_ENUM__INNER_ENUM_CLASS_NAME(enum_name)::element};
+
+#define __STR_ENUM_GENERATE_CONSTANTS0(enum_name, ...)
+${__STR_ENUM__GENERATE_CONSTANTS__OVERLOAD_DEFINES}
+
+#define __STR_ENUM_GET_GENERATE_CONSTANTS_OVERRIDE(...) __STR_ENUM_GET_NTH_ARG("ignored", ##__VA_ARGS__, ${__STR_ENUM__GENERATE_CONSTANTS__OVERLOADS})
+#define __STR_ENUM__GENERATE_CONSTANTS(enum_name, ...) __STR_ENUM_GET_GENERATE_CONSTANTS_OVERRIDE(__VA_ARGS__)(enum_name, __VA_ARGS__)
+
+#endif // __STR_ENUM__GENERATE_CONSTANTS_HPP__

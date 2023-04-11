@@ -1,0 +1,6 @@
+#ifndef __STR_ENUM__GET_NTH_ARG_HPP_
+#define __STR_ENUM__GET_NTH_ARG_HPP_
+
+#define __STR_ENUM_GET_NTH_ARG(${__STR_ENUM_GET_NTH_ARG_ARGS} N, ...) N
+
+#endif // __STR_ENUM__GET_NTH_ARG_HPP_
