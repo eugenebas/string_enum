@@ -18,11 +18,11 @@
     };
 
 
-#define __STR_ENUM_INNER_ENUM(enum_name, ...) enum class __STR_ENUM__INNER_ENUM_CLASS_NAME(enum_name) {__VA_ARGS__};
+#define __STR_ENUM__INNER_ENUM(enum_name, ...) enum class __STR_ENUM__INNER_ENUM_CLASS_NAME(enum_name) {__VA_ARGS__};
 
 #define STRING_ENUM(enum_name, ...) \
 struct __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name) { \
-    __STR_ENUM_INNER_ENUM(enum_name, __VA_ARGS__)\
+    __STR_ENUM__INNER_ENUM(enum_name, __VA_ARGS__)\
     static __STR_ENUM__STRING_ARRAY(enum_name, __VA_ARGS__)\
     \
     constexpr __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name)(__STR_ENUM__INNER_ENUM_CLASS_NAME(enum_name) value): mValue(value){}\
