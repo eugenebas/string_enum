@@ -14,7 +14,7 @@
 
 #define __STR_ENUM__STRING_ARRAY(enum_name, ...)\
     constexpr std::array<const char*, __STR_ENUM__COUNT_ARGS(__VA_ARGS__) > __STR_ENUM__INNER_ARRAY_NAME(enum_name) {\
-        __STR_ENUM_GENERATE_STRINGS(__VA_ARGS__)\
+        __STR_ENUM__GENERATE_STRINGS(__VA_ARGS__)\
     };
 
 
