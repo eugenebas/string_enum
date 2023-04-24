@@ -38,6 +38,7 @@ struct __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name) { \
     } \
     auto operator<=>(const __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name)& other) const = default; \
 };\
+\
 struct enum_name : public __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name) { \
     enum_name(__STR_ENUM__INNER_ENUM_CLASS_NAME(enum_name) value) : __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name)(value) {} \
     enum_name(const __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name)& other) : __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name)(other) {} \
