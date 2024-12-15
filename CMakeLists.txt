@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.16)
 
 include(cmake/generate_nth_arg.cmake)
 include(cmake/generate_count_args.cmake)
@@ -30,13 +30,8 @@ GENERATE_CONSTANTS_DEFINES(${STRING_ENUM_MAX_SIZE} __STR_ENUM__GENERATE_CONSTANT
 GENERATE_CONSTANTS_OVERLOADS(${STRING_ENUM_MAX_SIZE} __STR_ENUM__GENERATE_CONSTANTS__OVERLOADS)
 configure_file(generate_constants.hpp.in generate_constants.hpp)
 
-set (CMAKE_CXX_STANDARD 20)
-add_library(${CMAKE_PROJECT_NAME} INTERFACE string_enum.hpp
-                                            names.hpp
-                                            get_nth_arg.hpp
-                                            count_args.hpp
-                                            generate_strings.hpp
-                                            generate_constants.hpp)
+set(CMAKE_CXX_STANDARD 20)
+add_library(${CMAKE_PROJECT_NAME} INTERFACE)
 target_include_directories(${CMAKE_PROJECT_NAME} INTERFACE "${CMAKE_CURRENT_BINARY_DIR}"
                                                            "${CMAKE_CURRENT_SOURCE_DIR}")
 target_sources(${CMAKE_PROJECT_NAME} INTERFACE "${CMAKE_CURRENT_BINARY_DIR}/get_nth_arg.hpp"
@@ -49,7 +44,7 @@ find_package(GTest REQUIRED)
 
 add_executable(unit_tests tests.cpp)
 target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-target_link_libraries(unit_tests GTest::gtest GTest::gtest_main ${CMAKE_PROJECT_NAME})
+target_link_libraries(unit_tests GTest::GTest GTest::Main ${CMAKE_PROJECT_NAME})
 
 include(GoogleTest)
 gtest_discover_tests(unit_tests)
