@@ -12,6 +12,10 @@ TEST(string_enum, selfComparison) {
     EXPECT_EQ(Color::Green, Color::Green);
     EXPECT_EQ(Color::Blue,  Color::Blue);
 
+    EXPECT_NE(Color::Red, Color::Green);
+    EXPECT_NE(Color::Red, Color::Blue);
+    EXPECT_NE(Color::Green, Color::Blue);
+
     EXPECT_GT(Color::Green, Color::Red);
     EXPECT_GT(Color::Blue,  Color::Red);
     EXPECT_GT(Color::Blue,  Color::Green);
@@ -33,13 +37,19 @@ TEST(string_enum, integerComparison) {
     EXPECT_EQ(Color::Blue,  2);
 
     EXPECT_GT(1,  Color::Red);
+    EXPECT_GT(Color::Red, -1);
     EXPECT_LT(-1, Color::Red);
+    EXPECT_LT(Color::Red, 1);
 
-    EXPECT_GT(2,  Color::Green);
-    EXPECT_LT(0,  Color::Green);
+    EXPECT_GT(2, Color::Green);
+    EXPECT_GT(Color::Green, 0);
+    EXPECT_LT(0, Color::Green);
+    EXPECT_LT(Color::Green, 2);
 
-    EXPECT_GT(3,  Color::Blue);
-    EXPECT_LT(1,  Color::Blue);
+    EXPECT_GT(3, Color::Blue);
+    EXPECT_GT(Color::Blue, 1);
+    EXPECT_LT(1, Color::Blue);
+    EXPECT_LT(Color::Blue, 3);
 }
 
 TEST(string_enum, cstringComparison) {
