@@ -44,5 +44,12 @@ target_sources(${CMAKE_PROJECT_NAME} INTERFACE "${CMAKE_CURRENT_BINARY_DIR}/get_
                                                "${CMAKE_CURRENT_BINARY_DIR}/generate_strings.hpp"
                                                "${CMAKE_CURRENT_BINARY_DIR}/generate_constants.hpp")
 
-add_executable(test main.cpp)
-target_link_libraries(test ${CMAKE_PROJECT_NAME})
+enable_testing()
+find_package(GTest REQUIRED)
+
+add_executable(unit_tests tests.cpp)
+target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_link_libraries(unit_tests GTest::gtest GTest::gtest_main ${CMAKE_PROJECT_NAME})
+
+include(GoogleTest)
+gtest_discover_tests(unit_tests)
