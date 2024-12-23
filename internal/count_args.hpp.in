@@ -1,7 +1,7 @@
 #ifndef __STR_ENUM__COUNT_ARGS_HPP_
 #define __STR_ENUM__COUNT_ARGS_HPP_
 
-#include "get_nth_arg.hpp"
+#include "internal/get_nth_arg.hpp"
 
 #define __STR_ENUM__COUNT_ARGS(...) __STR_ENUM__GET_NTH_ARG("ignored", ##__VA_ARGS__, ${__STR_ENUM_COUNT_ARGS_ARGS})
 

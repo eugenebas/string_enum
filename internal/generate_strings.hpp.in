@@ -1,7 +1,7 @@
 #ifndef __STR_ENUM__GENERATE_STRINGS_HPP__
 #define __STR_ENUM__GENERATE_STRINGS_HPP__
 
-#include "get_nth_arg.hpp"
+#include "internal/get_nth_arg.hpp"
 
 ${__STR_ENUM__GENERATE_STRINGS_OVERLOAD_DEFINES}
 

@@ -1,7 +1,7 @@
 #ifndef __STR_ENUM__GENERATE_CONSTANTS_HPP__
 #define __STR_ENUM__GENERATE_CONSTANTS_HPP__
 
-#include "names.hpp"
+#include "internal/names.hpp"
 
 #define __STR_ENUM_GENERATE_CONSTANT(enum_name, element) static constexpr __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name) element{__STR_ENUM__INNER_ENUM_CLASS_NAME(enum_name)::element};
 

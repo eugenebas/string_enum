@@ -7,10 +7,10 @@
 #include <string>
 #include <type_traits>
 
-#include "names.hpp"
-#include "count_args.hpp"
-#include "generate_strings.hpp"
-#include "generate_constants.hpp"
+#include "internal/names.hpp"
+#include "internal/count_args.hpp"
+#include "internal/generate_strings.hpp"
+#include "internal/generate_constants.hpp"
 
 #define __STR_ENUM__STRING_ARRAY(enum_name, ...)\
     constexpr std::array<const char*, __STR_ENUM__COUNT_ARGS(__VA_ARGS__) > __STR_ENUM__INNER_ARRAY_NAME(enum_name) {\
