@@ -6,4 +6,9 @@ add_executable(count_args_tests count_args_tests.cpp)
 target_include_directories(count_args_tests PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 target_link_libraries(count_args_tests GTest::GTest GTest::Main ${CMAKE_PROJECT_NAME})
 
+add_executable(names_tests names_tests.cpp)
+target_include_directories(names_tests PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_link_libraries(names_tests GTest::GTest GTest::Main ${CMAKE_PROJECT_NAME})
+
 gtest_discover_tests(count_args_tests)
+gtest_discover_tests(names_tests)
