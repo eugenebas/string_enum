@@ -1,0 +1,9 @@
+include(GoogleTest)
+
+find_package(GTest REQUIRED)
+
+add_executable(count_args_tests count_args_tests.cpp)
+target_include_directories(count_args_tests PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_link_libraries(count_args_tests GTest::GTest GTest::Main ${CMAKE_PROJECT_NAME})
+
+gtest_discover_tests(count_args_tests)

@@ -32,3 +32,4 @@ target_sources(internal INTERFACE ${INTERNAL_HEADERS} ${API_HEADERS})
 set_target_properties(internal PROPERTIES PRIVATE_HEADER "${INTERNAL_HEADERS}")
 install(TARGETS internal PRIVATE_HEADER DESTINATION "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR}/${CMAKE_PROJECT_NAME}/internal")
 
+add_subdirectory(tests)
