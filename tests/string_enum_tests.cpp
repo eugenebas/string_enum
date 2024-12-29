@@ -74,3 +74,15 @@ TEST(string_enum, switchExpressionSupport) {
         default: FAIL();
     }
 }
+
+TEST(string_enum, sizeOnStack) {
+    enum class Color2 {
+        Red,
+        Green,
+        Blue
+    };
+    EXPECT_EQ(sizeof(Color2::Red), sizeof(Color::Red));
+    Color c = Color::Red;
+    Color2 c2 = Color2::Red;
+    EXPECT_EQ(sizeof(c), sizeof(c2));
+}
