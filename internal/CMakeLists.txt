@@ -28,8 +28,8 @@ set(INTERNAL_HEADERS "names.hpp"
                      "${CMAKE_CURRENT_BINARY_DIR}/count_args.hpp"
                      "${CMAKE_CURRENT_BINARY_DIR}/generate_strings.hpp"
                      "${CMAKE_CURRENT_BINARY_DIR}/generate_constants.hpp")
-target_sources(internal INTERFACE ${INTERNAL_HEADERS} ${API_HEADERS})
+target_sources(internal INTERFACE ${INTERNAL_HEADERS})
 set_target_properties(internal PROPERTIES PRIVATE_HEADER "${INTERNAL_HEADERS}")
-install(TARGETS internal PRIVATE_HEADER DESTINATION "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR}/${CMAKE_PROJECT_NAME}/internal")
+install(TARGETS internal PRIVATE_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${CMAKE_PROJECT_NAME}/internal")
 
 add_subdirectory(tests)
