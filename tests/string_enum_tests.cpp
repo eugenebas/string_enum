@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 #include "string_enum.hpp"
+#include <string>
+#include <sstream>
 
 STRING_ENUM(Color,
     Red,
@@ -85,4 +87,28 @@ TEST(string_enum, sizeOnStack) {
     Color c = Color::Red;
     Color2 c2 = Color2::Red;
     EXPECT_EQ(sizeof(c), sizeof(c2));
+}
+
+TEST(string_enum, convertionToString) {
+    EXPECT_EQ(static_cast<std::string>(Color::Red), "Red");
+    EXPECT_EQ(static_cast<std::string>(Color::Green), "Green");
+    EXPECT_EQ(static_cast<std::string>(Color::Blue), "Blue");
+}
+
+TEST(string_enum, ostreamShiftLeftOperator) {
+    {
+        std::stringstream ss;
+        ss << Color::Red;
+        EXPECT_EQ(ss.str(), "Red");
+    }
+    {
+        std::stringstream ss;
+        ss << Color::Green;
+        EXPECT_EQ(ss.str(), "Green");
+    }
+    {
+        std::stringstream ss;
+        ss << Color::Blue;
+        EXPECT_EQ(ss.str(), "Blue");
+    }
 }
