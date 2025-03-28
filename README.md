@@ -72,3 +72,9 @@ Red
 Green
 Blue is the color I've expected!
 ```
+
+# known restrictions
+1. STRING_ENUM macro doesn't support explicit value setting for its elements
+2. STRING_ENUM macro doesn't support explicit setting of the underlying integer type
+3. STRING_ENUM element count can't exceed STRING_ENUM_MAX_SIZE which is set during the build procedure (default value is 255)
+4. STRING_ENUM macro doesn't support creation from string
