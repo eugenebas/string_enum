@@ -24,6 +24,8 @@ configure_file(generate_constants.hpp.in generate_constants.hpp)
 add_library(internal INTERFACE)
 target_include_directories(internal INTERFACE "${CMAKE_CURRENT_BINARY_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}")
 set(INTERNAL_HEADERS "names.hpp"
+                     "inner_string_array.hpp"
+                     "innter_enum_class.hpp"
                      "${CMAKE_CURRENT_BINARY_DIR}/get_nth_arg.hpp"
                      "${CMAKE_CURRENT_BINARY_DIR}/count_args.hpp"
                      "${CMAKE_CURRENT_BINARY_DIR}/generate_strings.hpp"

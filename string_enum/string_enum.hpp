@@ -7,24 +7,18 @@
 #include <string>
 #include <type_traits>
 
-#include "internal/names.hpp"
-#include "internal/count_args.hpp"
-#include "internal/generate_strings.hpp"
-#include "internal/generate_constants.hpp"
-
-#define __STR_ENUM__STRING_ARRAY(enum_name, ...)\
-    constexpr std::array<const char*, __STR_ENUM__COUNT_ARGS(__VA_ARGS__) > __STR_ENUM__INNER_ARRAY_NAME(enum_name) {\
-        __STR_ENUM__GENERATE_STRINGS(__VA_ARGS__)\
-    };
-
-
-#define __STR_ENUM__INNER_ENUM(enum_name, ...) enum class __STR_ENUM__INNER_ENUM_CLASS_NAME(enum_name) {__VA_ARGS__};
+#include <string_enum/internal/names.hpp>
+#include <string_enum/internal/inner_string_array.hpp>
+#include <string_enum/internal/inner_enum_class.hpp>
+#include <string_enum/internal/count_args.hpp>
+#include <string_enum/internal/generate_strings.hpp>
+#include <string_enum/internal/generate_constants.hpp>
 
 #define STRING_ENUM(enum_name, ...) \
 struct __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name) { \
     protected: \
-    __STR_ENUM__INNER_ENUM(enum_name, __VA_ARGS__) \
-    static __STR_ENUM__STRING_ARRAY(enum_name, __VA_ARGS__) \
+    __STR_ENUM__INNER_ENUM_CLASS(enum_name, __VA_ARGS__) \
+    static __STR_ENUM__INNER_STRING_ARRAY(enum_name, __VA_ARGS__) \
     \
     constexpr __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name)(const __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name)& other) = default; \
     constexpr __STR_ENUM__BASE_STRING_ENUM_NAME(enum_name)(const std::underlying_type_t<__STR_ENUM__INNER_ENUM_CLASS_NAME(enum_name)>& value): \
